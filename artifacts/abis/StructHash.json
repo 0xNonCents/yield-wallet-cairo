@@ -1,0 +1,14 @@
+[
+    {
+        "inputs": [],
+        "name": "test",
+        "outputs": [
+            {
+                "name": "hash",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]

@@ -1,0 +1,68 @@
+[
+    {
+        "inputs": [
+            {
+                "name": "signing_key",
+                "type": "felt"
+            }
+        ],
+        "name": "constructor",
+        "outputs": [],
+        "type": "constructor"
+    },
+    {
+        "inputs": [
+            {
+                "name": "new_signing_key",
+                "type": "felt"
+            }
+        ],
+        "name": "set_signing_key",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "hash",
+                "type": "felt"
+            },
+            {
+                "name": "sig_len",
+                "type": "felt"
+            },
+            {
+                "name": "sig",
+                "type": "felt*"
+            }
+        ],
+        "name": "is_valid_signature",
+        "outputs": [],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "weight",
+        "outputs": [
+            {
+                "name": "weight",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "get_signing_key",
+        "outputs": [
+            {
+                "name": "signing_key",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]

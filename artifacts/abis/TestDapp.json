@@ -1,0 +1,30 @@
+[
+    {
+        "inputs": [
+            {
+                "name": "number",
+                "type": "felt"
+            }
+        ],
+        "name": "set_number",
+        "outputs": [],
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "name": "user",
+                "type": "felt"
+            }
+        ],
+        "name": "get_number",
+        "outputs": [
+            {
+                "name": "number",
+                "type": "felt"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]
