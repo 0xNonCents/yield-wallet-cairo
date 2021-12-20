@@ -1,1 +1,8 @@
-./artifacts/*
+artifacts/
+.pytest_cache/
+### Python ###
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyc
