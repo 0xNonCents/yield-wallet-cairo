@@ -1,7 +1,7 @@
 %lang starknet
 %builtins pedersen range_check
 
-from starkware.starknet.common.syscalls import get_caller_address
+from starkware.starknet.common.syscalls import get_caller_address, get_contract_address
 from starkware.cairo.common.cairo_builtins import HashBuiltin
 from starkware.cairo.common.math import assert_not_zero
 from starkware.cairo.common.uint256 import (
@@ -20,6 +20,12 @@ func constructor{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_p
     return ()
 end
 
+@contract_interface
+namespace IAccount:
+    func recieved(token_address : felt, amount : Uint256) -> ():
+    end
+end
+
 #
 # Externals
 #
@@ -30,6 +36,9 @@ func transfer{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr}
     Ownable_only_owner()
     let (sender) = get_caller_address()
     ERC20_transfer(sender, recipient, amount)
+
+    let (contract_address) = get_contract_address()
+    IAccount.recieved(contract_address=recipient, token_address=contract_address, amount=amount)
 
     # Cairo equivalent to 'return (true)'
     return (1)

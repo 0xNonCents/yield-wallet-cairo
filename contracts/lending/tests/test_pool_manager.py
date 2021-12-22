@@ -65,15 +65,14 @@ async def pool_manager_factory():
     pool_manager = await starknet.deploy(
         "./contracts/lending/PoolManager.cairo",
         constructor_calldata=[
-            signer.public_key,
             pool_token.contract_address,  # pool_address
             input_token.contract_address,  # input_token_address
-            * uint(0)  # initial_pool_value
+            *uint(0)  # initial_pool_value
         ]
     )
 
     await signer.send_transaction(account, pool_token.contract_address, 'transferOwnership', [
-        pool_manager.address
+        pool_manager.contract_address
     ])
 
     return starknet, account, input_token, pool_token, pool_manager
@@ -82,5 +81,5 @@ async def pool_manager_factory():
 @pytest.mark.asyncio
 async def test_deploying_a_pool(pool_manager_factory):
     _, account, input_token, pool_token, pool_manager = pool_manager_factory
-    execution_info = await pool_manager.get_pool_token_address(account.contract_address).call()
+    execution_info = await pool_manager.get_pool_token_address().call()
     assert execution_info.result.balance == pool_token.contract_address
