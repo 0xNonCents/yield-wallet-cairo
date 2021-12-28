@@ -357,6 +357,21 @@ func escape_signer{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check
     return ()
 end
 
+# # stub for convinence
+@external
+func setYieldProvider{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr}(
+        yield_provider_addr : felt):
+    yield_provider_address.write(yield_provider_addr)
+    return ()
+end
+
+@external
+func addLendingToken{syscall_ptr : felt*, pedersen_ptr : HashBuiltin*, range_check_ptr}(
+        lending_token_address : felt):
+    is_lent_token.write(lending_token_address, 1)
+    return ()
+end
+
 ####################
 # VIEW FUNCTIONS
 ####################
