@@ -1,4 +1,4 @@
-# Yield Wallet for Starknet
+# Yield Wallet Proof of Concept for Starknet
 
 The purpose of this repo is to prototype a StarkNet wallet that has additional defi features for a better user expirence. The protype focuses on transfering tokens and putting tokens into lending pools
 
