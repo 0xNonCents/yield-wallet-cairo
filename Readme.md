@@ -15,6 +15,7 @@ On the consumer side of this interface (the token contract) the contract has no 
 A future iteration of this project should seek to find a way to add flexible automation to the Account Contract without requiring signifigant changes by the consumer.
 
 compiling contracts - nile compile
-running tests
+
+running tests:
 'erc20' : from project root - pytest contracts/erc20/tests/test_ERC20.py
 
